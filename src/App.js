@@ -1,4 +1,5 @@
-import logo from "./logo.svg";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./App.css";
 import {
   createBrowserRouter,
@@ -7,19 +8,25 @@ import {
   Routes,
   Link,
 } from "react-router-dom";
-import Profile from "./component/Profile";
-import Product from "./component/Product";
-import Setting from "./component/Setting";
-import Home from "./component/Home";
+import Profile from "./pages/Profile";
+import Product from "./pages/Product";
+import Setting from "./pages/Setting";
+import Home from "./pages/Home";
+import Header from "./component/Header";
+import Footer from "./component/Footer";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/setting" element={<Setting />} />
-      <Route path="/product" element={<Product />} />
-    </Routes>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/setting" element={<Setting />} />
+        <Route path="/product" element={<Product />} />
+      </Routes>
+      <Footer />
+    </>
   );
 }
 
