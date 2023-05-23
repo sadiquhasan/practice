@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
+  const location = useLocation();
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light py-2">
       <div className="container">
@@ -18,25 +21,55 @@ const Header = () => {
           </svg>
           <b className="logo_name">Vimo</b>
         </Link>
+        <button
+          class="navbar-toggler rounded-0 bg-secondary"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">
+              <Link
+                className={`nav-link ${location.pathname === "/" && "active"}`}
+                aria-current="page"
+                to="/"
+              >
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/product">
+              <Link
+                className={`nav-link ${
+                  location.pathname === "/product" && "active"
+                }`}
+                to="/product"
+              >
                 Product
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/profile">
+              <Link
+                className={`nav-link ${
+                  location.pathname === "/profile" && "active"
+                }`}
+                to="/profile"
+              >
                 Profile
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/setting">
+              <Link
+                className={`nav-link ${
+                  location.pathname === "/setting" && "active"
+                }`}
+                to="/setting"
+              >
                 Setting
               </Link>
             </li>
